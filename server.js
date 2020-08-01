@@ -12,7 +12,7 @@ mongoose.connect(MONGODB_URI, {
     useFindAndModify: false,
 });
 
-//create an app
+//create an app and use middleware to parse body and log the data
 const app = express();
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true}));
