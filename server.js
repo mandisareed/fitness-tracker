@@ -2,6 +2,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const addApiRoutes = require("./routes/api-routes");
 
 //connect with mongoose
 const PORT = process.env.PORT || 8080;
@@ -19,10 +20,11 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.use(express.static("public"));
 
-//create a single hello world route
-app.get("*", (req, res) => {
-    res.send("<h1>Hello, World!</h1>");
-});
+
+
+//routes that will be used (required above)
+//need to add html route here and require it above
+addApiRoutes(app);
 
 //listen
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
