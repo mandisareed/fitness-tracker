@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //create variable to hold Workout Schema
+//create a more detailed schema with constraints based on workout type (resis vs cardio)
 const WorkoutSchema = new Schema({
   day: {
     type: Date,
