@@ -42,4 +42,7 @@ module.exports = (app) => {
     })
 
     //create a route to get workouts in specific time range
+    app.get("/api/workouts/range", (req, res) => {
+        Workout.find
+    })
 };
