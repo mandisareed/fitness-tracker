@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const addApiRoutes = require("./routes/api-routes");
+const addHtmlRoutes = require("./routes/html-routes");
 
 //connect with mongoose
 const PORT = process.env.PORT || 8080;
@@ -23,8 +24,8 @@ app.use(express.static("public"));
 
 
 //routes that will be used (required above)
-//need to add html route here and require it above
 addApiRoutes(app);
+addHtmlRoutes(app);
 
 //listen
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
