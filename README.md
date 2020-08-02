@@ -4,11 +4,11 @@ A way to track fitness activity with graphic displays of fitness activity over t
 ## Description
 This application utilizes Express and Mongoose to track and store users' fitness activity, as well as display a colorful dashboard to dynamically showcase the users' exercises overtime.
 
-![Dashboard](/img/dashboardscreenshot.png)
+![Dashboard](/img/dashboardscreenshot.PNG)
 
-![Resistance Logger](/img/resistancelogger.png)
+![Resistance Logger](/img/resistancelogger.PNG)
 
-![Cardio Logger](/img/cardiologger.png)
+![Cardio Logger](/img/cardiologger.PNG)
 
 
 ## Table of Contents
