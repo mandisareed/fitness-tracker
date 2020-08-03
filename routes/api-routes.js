@@ -4,12 +4,15 @@ const express = require("express");
 //create a get route for /api/workouts that returns all workout data(or at least the last workout's data)
 module.exports = (app) => {
     app.get("/api/workouts", (req, res) => {
-        Workout.find({})
+        Workout.find()
+        .sort( {date: 1})
         .then((result) => {
-            res.json(result);
+           // result.forEach(result => Workout.calculateDuration())
+        // res.json(result.map)((w) => w.toObject({ virtuals: true}));
+           res.json(result);
         })
         .catch((err) => {
-            res.send("Error");
+            res.status(400).json(err);
         })
     });
 

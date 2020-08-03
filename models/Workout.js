@@ -10,42 +10,46 @@ const Schema = mongoose.Schema;
 const WorkoutSchema = new Schema({
   day: {
     type: Date,
+    default: Date.now,
   },
   exercises: {
       //setting up an empty array means "anything goes" because it's a mixed array; in it can be strings, objects, etc.
       //start simple for now      
       type: []
-  }
-});
+  },
+},
+  //new object to declare virtuals default to true
+  // {
+  //   toJSON:{
+  //     virtuals: true,
+  //   },
+  // }
+);
+
+// WorkoutSchema.virtual("totalDuration").get(function() {
+//   let total = 0;
+//   this.exercises.forEach(exercise => {
+//     total += exercise.duration;
+//   });
+//   return total;
+// })
+
+// create a custom method to add totalDuration
+// (or WorkoutSchema??) Workout.methods.calculateDuration = function() {
+//   //create var to hold total duration
+//   let total = 0;
+//   this.exercises.forEach(exercises => {
+//     total += exercises.duration;
+//   })
+//   this.totalDuration = total;
+  //for each exercise in exercises
+  //add duration to the total
+  //set totalDuration property
+//}
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;
 
-//Resistance workout example
-// {
-//     day: new Date(new Date().setDate(new Date().getDate() - 10)),
-//     exercises: [
-//       {
-//         type: "resistance",
-//         name: "Bicep Curl",
-//         duration: 20,
-//         weight: 100,
-//         reps: 10,
-//         sets: 4
-//       }
-//     ]
-//   }
 
-//Cardio workout example
-//   {
-//     day: new Date(new Date().setDate(new Date().getDate() - 7)),
-//     exercises: [
-//       {
-//         type: "cardio",
-//         name: "Running",
-//         duration: 25,
-//         distance: 4
-//       }
-//     ]
-//   }
+
