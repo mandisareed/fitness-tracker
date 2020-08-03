@@ -6,9 +6,8 @@ This application utilizes Express and Mongoose to track and store users' fitness
 
 ![Dashboard](/img/dashboardscreenshot.PNG)
 
-![Resistance Logger](/img/resistancelogger.PNG)
+![Resistance Logger](/img/resistancelogger.png) | ![Cardio Logger](/img/cardiologger.png)
 
-![Cardio Logger](/img/cardiologger.PNG)
 
 
 ## Table of Contents
