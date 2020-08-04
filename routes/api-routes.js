@@ -7,8 +7,6 @@ module.exports = (app) => {
         Workout.find()
         // .sort( {date: 1})
         .then((result) => {
-           // result.forEach(result => Workout.calculateDuration())
-        // res.json(result.map)((w) => w.toObject({ virtuals: true}));
            res.json(result);
         })
         .catch((err) => {
