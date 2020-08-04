@@ -4,6 +4,8 @@ A way to track fitness activity with graphic displays of fitness activity over t
 ## Description
 This application utilizes Express and Mongoose to track and store users' fitness activity, as well as display a colorful dashboard to dynamically showcase the users' exercises overtime.
 
+[Check out the deployed app!](https://fitness-tracker-demo.herokuapp.com/)
+
 ![Dashboard](/img/dashboardscreenshot.PNG)
 
 ![Resistance Logger](/img/resistancelogger.PNG) | ![Cardio Logger](/img/cardiologger.PNG)
