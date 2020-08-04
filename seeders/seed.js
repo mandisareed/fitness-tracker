@@ -1,8 +1,10 @@
 let mongoose = require("mongoose");
 let db = require("../models");
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+
 
 //db name is workout, as defined by the connection here:
-mongoose.connect("mongodb://localhost/workout", {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useFindAndModify: false
 });
