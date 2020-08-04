@@ -10,29 +10,54 @@ const Schema = mongoose.Schema;
 const WorkoutSchema = new Schema({
   day: {
     type: Date,
-    default: Date.now,
+    default: new Date(),
   },
-  exercises: {
-      //setting up an empty array means "anything goes" because it's a mixed array; in it can be strings, objects, etc.
-      //start simple for now      
-      type: []
-  },
+  exercises: [
+    {
+      type: {
+        type: String,
+        trim: true,
+        required: "Enter workout type"
+      },
+      name: {
+        type: String,
+        trim: true,
+        required: "Enter workout name"
+      },
+      duration: {
+        type: Number,
+        required: "Enter workout duration"
+      },
+      weight: {
+        type: Number
+      },
+      reps: {
+        type: Number
+      },
+      sets: {
+        type: Number
+      },
+      distance: {
+        type: Number
+      }
+    }
+  ]
 },
   //new object to declare virtuals default to true
-  // {
-  //   toJSON:{
-  //     virtuals: true,
-  //   },
-  // }
+  {
+    toJSON:{
+      virtuals: true,
+    },
+  }
 );
 
-// WorkoutSchema.virtual("totalDuration").get(function() {
-//   let total = 0;
-//   this.exercises.forEach(exercise => {
-//     total += exercise.duration;
-//   });
-//   return total;
-// })
+WorkoutSchema.virtual("totalDuration").get(function() {
+  
+  return this.exercises.reduce((accumulator, exercise) => {
+   return accumulator + exercise.duration;
+  }, 0);
+  // return total;
+})
 
 // create a custom method to add totalDuration
 // (or WorkoutSchema??) Workout.methods.calculateDuration = function() {

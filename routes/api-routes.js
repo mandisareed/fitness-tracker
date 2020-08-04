@@ -5,7 +5,7 @@ const express = require("express");
 module.exports = (app) => {
     app.get("/api/workouts", (req, res) => {
         Workout.find()
-        .sort( {date: 1})
+        // .sort( {date: 1})
         .then((result) => {
            // result.forEach(result => Workout.calculateDuration())
         // res.json(result.map)((w) => w.toObject({ virtuals: true}));
@@ -25,8 +25,8 @@ module.exports = (app) => {
                 res.json(result);
             })
             .catch((err) => {
-                res.send("Error");
-                console.log("Error in adding exercise")
+                res.json(err);
+                console.log("Your error was " + err)
             })
         });
 
@@ -39,20 +39,20 @@ module.exports = (app) => {
             res.json(result);
         })
         .catch((err) => {
-            res.send("Error");
-            console.log("Error in adding a new workout")
+            res.json(err);
+            console.log("Error in adding a new workout: " + err)
         })
     })
 
     //create a route to get workouts in specific time range
     app.get("/api/workouts/range", (req, res) => {
-        Workout.find({}).sort({date: -1})
+        Workout.find({}).limit(7)
         .then((result) => {
             res.json(result);
         })
         .catch((err) => {
-            res.send("Error");
-            console.log("Error in adding a displaying stats")
+            res.json(err);
+            console.log("Error in adding a displaying stats" + err)
         })
     })
 };
